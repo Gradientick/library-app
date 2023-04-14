@@ -7,11 +7,9 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const main = document.getElementById("main");
 
-
 function createNewBook() {
     document.createElement('article');
 }
-
 
 function Book(title, author, pages) {
     this.title = title;
@@ -24,13 +22,14 @@ function clearInput() {
     author.value = "";
     pages.value = "";
 };
+
 function openModal() {
     modal.style.display="flex";
 }
+
 function closeModal() {
     modal.style.display="none";
 }
-
 
 function appendNewBook(book) {
         const article = document.createElement('article');
@@ -56,13 +55,13 @@ function appendNewBook(book) {
         main.appendChild(article);
     }
 
-
 openModalBtn.addEventListener("click", openModal);
 
 closeModalBtn.addEventListener("click", closeModal);
 
 addBtn.addEventListener("click", function(event) {
     event.preventDefault();
+    if (title.value === "" || author.value === "" || pages.value === "") return;
     const book = new Book(title.value, author.value, pages.value);
     
     clearInput();
